@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @insight %>
+
+<div>
+  <%= link_to "Edit this insight", edit_insight_path(@insight) %> |
+  <%= link_to "Back to insights", insights_path %>
+
+  <%= button_to "Destroy this insight", @insight, method: :delete %>
+</div>

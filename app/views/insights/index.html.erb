@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Insights</h1>
+
+<div id="insights">
+  <% @insights.each do |insight| %>
+    <%= render insight %>
+    <p>
+      <%= link_to "Show this insight", insight %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New insight", new_insight_path %>
