@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>AiInsights</title>
+    <title>Ai Insights</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -10,9 +10,11 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body class="container-fluid">
-    <%= yield %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+  <body>
+    <%= render 'shared/navbar' %>
+    <%= render 'shared/flashes' %>
+    <div class="container-fluid">
+      <%= yield %>
+    </div>
   </body>
 </html>
