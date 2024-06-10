@@ -1,40 +1,34 @@
 <div class="container-md">
-    <h1 class="text-center mt-3">Survey Responses</h1>
-    <div class="d-flex flex-row-reverse align-items-center">
-        <div class="d-flex flex-column align-items-center ms-2">
-            <i class="bi bi-arrow-up-square-fill"></i>
-            <i class="bi bi-arrow-down-square-fill"></i>
-        </div>
-        <%= link_to 'Generate Insight', insights_path, :class => "btn btn-light border-3 border-dark mt-2 mb-2 text-dark fw-bold" %>
+  <h1 class="text-center mt-3">Survey Responses</h1>
+  <div class="d-flex flex-row-reverse align-items-center">
+    <div class="d-flex flex-column align-items-center ms-2">
+      <i class="bi bi-arrow-up-square-fill"></i>
+      <i class="bi bi-arrow-down-square-fill"></i>
     </div>
-    <table class="table table-dark table-striped">
+    <%= link_to 'Generate Insight', insights_path, class: "btn btn-light border-3 border-dark mt-2 mb-2 text-dark fw-bold" %>
+  </div>
+  <table class="table table-dark table-striped">
     <thead>
-        <tr>
+      <tr>
         <th scope="col">#</th>
-        <th scope="col">Name</th>
-        <th scope="col">Responses</th>
-        <th scope="col">Date</th>
-        </tr>
+        <th scope="col">User ID</th>
+        <th scope="col">Response ID</th>
+        <th scope="col">Content</th>
+        <th scope="col">Bot Response</th>
+      </tr>
     </thead>
     <tbody>
-        <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-        </tr>
-        <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-        </tr>
-        <tr>
-        <th scope="row">3</th>
-        <td colspan="2">Larry the Bird</td>
-        <td>@twitter</td>
-        </tr>
+      <% @responses.each_with_index do |user, index| %>
+        <% user["responses"].each do |response| %>
+          <tr>
+            <th scope="row"><%= index + 1 %></th>
+            <td><%= user["user_id"] %></td>
+            <td><%= response["id"] %></td>
+            <td><%= response["content"] %></td>
+            <td><%= response["bot_response"] %></td>
+          </tr>
+        <% end %>
+      <% end %>
     </tbody>
-    </table>
-
+  </table>
 </div>
